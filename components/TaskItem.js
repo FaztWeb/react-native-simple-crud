@@ -12,7 +12,7 @@ const TaskItem = ({ task, index, deleteTask }) => {
           <Text style={styles.listTaskItem}>{task.name}</Text>
         </View>
         <Icon
-          name="remove"
+          name="trash"
           size={20}
           color="#D0666A"
           onPress={() => deleteTask(task.id)}
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   listTaskItem: {
     fontSize: 18,
-    marginLeft: 10,
+    marginLeft: 5,
   },
 });
 

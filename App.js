@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, FlatList, Alert } from "react-native";
 import { v4 as uuidv4 } from "uuid";
 import "react-native-get-random-values";
@@ -16,6 +16,7 @@ const App = () => {
     Alert.alert("Delete A Task", "Are you sure?", [
       {
         text: "Cancel",
+        style: "cancel",
       },
       {
         text: "Delete",
@@ -36,6 +37,16 @@ const App = () => {
     }
     setTasks([{ id: uuidv4(), name }, ...tasks]);
   };
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos?_limit=5"
+      );
+      const data = await response.json();
+      setTasks([...data.map(({ id, title }) => ({ id, name: title }))]);
+    })();
+  }, []);
 
   return (
     <View style={styles.container}>
