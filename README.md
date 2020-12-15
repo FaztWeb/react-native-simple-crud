@@ -1,6 +1,6 @@
-# React Native - Expo Course
+# React Native CRUD
 
-This is a simple application to learn react native, using Expo as a CLI.
+This is a simple CRUD application using react native, with Expo as a CLI.
 
 # Resources
 
